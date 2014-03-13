@@ -51,14 +51,14 @@ class main_gui(Gtk.Window):
 		action_group.add_action(action_filequit)
 		
 		action_new = Gtk.Action("SQLite", lang.MENU_OPEN_SQLITE, "Create a new file", Gtk.STOCK_OPEN)
-		action_new.connect("activate", self.on_menu_file_new_generic)
+		action_new.connect("activate", self.on_menu_open_sqlite)
 		action_group.add_action_with_accel(action_new, None)
 		
 		action_group.add_actions([ 
 			("MySQL", None, lang.MENU_OPEN_MYSQL, None, "Create new foo",
-             self.on_menu_file_new_generic),
+             self.on_menu_open_mysql),
             ("MSSQL", None, lang.MENU_OPEN_MSSQL, None, "Create new goo",
-             self.on_menu_file_new_generic),
+             self.on_menu_open_mssql),
         ])
 		
 	def create_ui_manager(self):
@@ -78,8 +78,14 @@ class main_gui(Gtk.Window):
 	def create_widgets(self):
 		pass
 
-	def on_menu_file_new_generic(self, widget):
-		print("A File|New menu item was selected.")
+	def on_menu_open_sqlite(self, widget):
+		print("Open SQLite DB was selected") #Temporary debuging
+
+	def on_menu_open_mysql(self, widget):
+		print("Open MySQL DB was selected") #Temporary debuging
+
+	def on_menu_open_mssql(self, widget):
+		print("Open Ms SQL DB was selected") #Temporary debuging
 
 def main():
 	pass
