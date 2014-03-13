@@ -50,14 +50,14 @@ class main_gui(Gtk.Window):
 		action_filequit.connect("activate", self.on_menu_file_quit)
 		action_group.add_action(action_filequit)
 		
-		action_new = Gtk.Action("SQLite", lang.MENU_OPEN_SQLITE, "Create a new file", Gtk.STOCK_OPEN)
+		action_new = Gtk.Action("SQLite", lang.MENU_OPEN_SQLITE, "Connect to SQLite", Gtk.STOCK_OPEN)
 		action_new.connect("activate", self.on_menu_open_sqlite)
 		action_group.add_action_with_accel(action_new, None)
 		
 		action_group.add_actions([ 
-			("MySQL", None, lang.MENU_OPEN_MYSQL, None, "Create new foo",
+			("MySQL", None, lang.MENU_OPEN_MYSQL, None, "Connect to MySQL",
              self.on_menu_open_mysql),
-            ("MSSQL", None, lang.MENU_OPEN_MSSQL, None, "Create new goo",
+            ("MSSQL", None, lang.MENU_OPEN_MSSQL, None, "Ms SQL",
              self.on_menu_open_mssql),
         ])
 		
@@ -79,14 +79,23 @@ class main_gui(Gtk.Window):
 		pass
 
 	def on_menu_open_sqlite(self, widget):
-		print("Open SQLite DB was selected") #Temporary debuging
-
+		if 'sqlite' in self.db.db_type_list: 
+			print("Open SQLite DB was selected") #Temporary debuging
+		else:
+			'Missing module sqlite3 to perform selected action.'
+			
 	def on_menu_open_mysql(self, widget):
-		print("Open MySQL DB was selected") #Temporary debuging
-
+		if 'mysql' in self.db.db_type_list: 
+			print("Open SQLite DB was selected") #Temporary debuging
+		else:
+			print 'Missing module mysql.connect to perform selected action.'
+			
 	def on_menu_open_mssql(self, widget):
-		print("Open Ms SQL DB was selected") #Temporary debuging
-
+		if 'mssql' in self.db.db_type_list: 
+			print("Open SQLite DB was selected") #Temporary debuging
+		else:
+			print 'Missing module mssql to perform selected action.'
+			
 def main():
 	pass
 
