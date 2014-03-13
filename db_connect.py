@@ -3,6 +3,14 @@
 
 db_type_list = []
 
+"""
+Most of the code here is either temporary or very much unfinnished.
+The plan is to read in all files from ./dbHandlers/database_handler_[a-z]+.py
+and do the the imports in a loop. Generating a list of avilable databases 
+useable (both module and hanlder present). The GUI will use that info to present
+the available options.
+"""
+
 #Test if sqlite3 module is present
 try: 
 	import database_handler_sqlite
