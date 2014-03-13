@@ -4,10 +4,9 @@
 db_type_list = []
 
 #Test if sqlite3 module is present
-try:
-	import sqlite3 as sqlite
-	from database_handler_sqlite import *
-	db_type_list.append('sqlite')
+try: 
+	import database_handler_sqlite
+	db_type_list.append(database_handler_sqlite.name)
 	
 except ImportError:
 	#Going to show message to user later
@@ -15,9 +14,8 @@ except ImportError:
 		
 #Test if MySQL module is present
 try:
-	import mysql.connect
-	from database_handler_mysql import *
-	db_type_list.append('mysql')
+	import database_handler_mysql
+	db_type_list.append(database_handler_mysql.name)
 	
 except ImportError:
 	#Going to show message to user later
@@ -25,9 +23,8 @@ except ImportError:
 
 #Test if MsSQL module is pressent
 try:
-	import mssql
-	from database_handler_mssql import *
-	db_type_list.append('mssql')
+	import database_handler_mssql
+	db_type_list.append(database_handler_mssql.name)
 	
 except ImportError:
 	#Going to show message to user later
