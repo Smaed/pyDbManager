@@ -52,14 +52,13 @@ class connection_handler(object):
 		elif db_type == 'mssql':
 			self.connect_mssql(path)
 			
-	def connect_sqlite(self, path):
-		self.connected_db.append(database_handler_sqlite(path))
-		
-	def connect_mysql(self, path):
-		self.connected_db.append(database_handler_mysql(path))
-		
-	def connect_mssql(self, path): 
-		self.connected_db.append(database_handler_mssql(path))
+#	def connect_sqlite(self, path):
+#		self.connected_db.append(database_handler_sqlite(path))
+#		
+#	def connect_mysql(self, path):
+#		self.connected_db.append(database_handler_mysql(path))
+#		
+#		self.connected_db.append(database_handler_mssql(path))
 	
 def main():
 	
