@@ -12,8 +12,7 @@ class database_handler_mssql(object):
 		self.db_type = 'mssql'
 		
 	def database_handler_connect(self):
-		self.con = sqlite.connect(self.path)
-		self.cur = con.cursor()
+		pass
 		
 	def exec_sql(self):
 		pass

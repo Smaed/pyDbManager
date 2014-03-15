@@ -82,7 +82,7 @@ class main_gui(Gtk.Window):
 		if 'sqlite' in self.db.db_type_list: 
 			print("Open SQLite DB was selected") #Temporary debuging
 		else:
-			'Missing module sqlite3 to perform selected action.'
+			print 'Missing module sqlite3 to perform selected action.'
 			
 	def on_menu_open_mysql(self, widget):
 		if 'mysql' in self.db.db_type_list: 

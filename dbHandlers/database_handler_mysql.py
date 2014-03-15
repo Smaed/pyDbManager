@@ -12,8 +12,7 @@ class database_handler_sqlite(object):
 		self.type = 'mysql'
 		
 	def database_handler_connect(self):
-		self.con = sqlite.connect(self.path)
-		self.cur = con.cursor()
+		pass
 		
 	def database_handler_exec_sql(self):
 		pass

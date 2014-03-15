@@ -13,30 +13,30 @@ the available options.
 
 #Test if sqlite3 module is present
 try: 
-	import database_handler_sqlite
+	from database_handler_sqlite import *
 	db_type_list.append(database_handler_sqlite.name)
 	
 except ImportError:
 	#Going to show message to user later
-	pass
+	print 'no sqlite'
 		
 #Test if MySQL module is present
 try:
-	import database_handler_mysql
+	from database_handler_mysql import *
 	db_type_list.append(database_handler_mysql.name)
 	
 except ImportError:
 	#Going to show message to user later
-	pass
+	print 'no mySQL'
 
 #Test if MsSQL module is pressent
 try:
-	import database_handler_mssql
+	from database_handler_mssql import * 
 	db_type_list.append(database_handler_mssql.name)
 	
 except ImportError:
 	#Going to show message to user later
-	pass
+	print 'no ms sql'
 
 class connection_handler(object):
 	
@@ -53,7 +53,7 @@ class connection_handler(object):
 			self.connect_mssql(path)
 			
 #	def connect_sqlite(self, path):
-#		self.connected_db.append(database_handler_sqlite(path))
+#		self.connected_db.append(database_handler_sqlite(path))	
 #		
 #	def connect_mysql(self, path):
 #		self.connected_db.append(database_handler_mysql(path))
