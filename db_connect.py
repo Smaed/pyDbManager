@@ -13,7 +13,7 @@ the available options.
 
 #Test if sqlite3 module is present
 try: 
-	from database_handler_sqlite import *
+	from dbHandlers import database_handler_sqlite
 	db_type_list.append(database_handler_sqlite.name)
 	
 except ImportError:
@@ -22,7 +22,7 @@ except ImportError:
 		
 #Test if MySQL module is present
 try:
-	from database_handler_mysql import *
+	from dbHandlers import database_handler_mysql
 	db_type_list.append(database_handler_mysql.name)
 	
 except ImportError:
@@ -31,7 +31,7 @@ except ImportError:
 
 #Test if MsSQL module is pressent
 try:
-	from database_handler_mssql import * 
+	from dbHandlers import database_handler_mssql
 	db_type_list.append(database_handler_mssql.name)
 	
 except ImportError:
