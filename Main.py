@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/bin/python3.4
 # -*- coding: utf-8 -*-
 
 from gi.repository import Gtk

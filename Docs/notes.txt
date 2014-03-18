@@ -1,0 +1,12 @@
+What to do;
+
+1) Version of Python: 2 or 3
+	see pyVersion.txt 
+
+2) Gui toolkit: Gtk3, wxPython, Tkinter, qt or webinterface
+	see gui.txt
+
+3) Provided Handlers: 
+
+	SQLite and maby mySQL or mariaDB
+

@@ -1,0 +1,20 @@
+Current options:
+
+pyton 2.7.x
+
+python 3.2 / 3.4
+
+
+Both the 2.x and 3.x branches have their perks and since the GUI will
+probably be using tkinter wich exists in both 2 and 3 I can't realy see a problem
+with using python 3.
+
+In the end it comes down to how the support for various databases look, and
+at least SQLite3 support exists in both python 2 and 3.
+
+
+There is always a third route, trying to make it cross-version. This might be
+the right path now but it can also introduce unexpected problems if it isn't
+tested properly on several versions of python during development.
+
+

@@ -1,0 +1,43 @@
+GTK
+
+Probably my first choice if it was not going to be cross platform.
+How ever i would like to keep it dependency free and that rules GTK out.
+
+
+Pros:
+
+	Fits well in a *nix enviroment
+	Some nice features
+
+
+Cons:
+	
+	Not in standard library on windows and maby mac os
+
+
+Tkinter
+
+Nice toolkit that is also in the standard library for at least win/*nix/mac, wich
+makes it one of the number one choices.
+
+
+Pros:
+
+	In standard library
+
+
+Cons:
+
+	Does not look as nice on linux as GTK
+
+
+qt/wxPython
+
+Both is out simply because they are not in the standard library on any platform
+and on windows i would rather use tkinter and on linux GTK3
+
+
+Webinterface:
+
+showing it would be the best cross-platform solution there is always
+the problem of running it. Should it be run serverside / clientside /both.
