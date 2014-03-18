@@ -1,4 +1,4 @@
-pyDbManager - Specifications.txt
+pyDbManager - Specs.txt
 
 Anton Fougt 2014
 
@@ -8,12 +8,14 @@ Shortlist of features.
 
 1). Handle many different SQL databases with support for almost any database usinghandlers for the different types. 
 
-2). No dependencies, if a handler uses a module that is not in the standard library it will not be loaded, and the interface informs and does not show the handler specific graphics. 
+2). No dependencies, if a handler uses a module that is not in the standard library it will not be loaded, and the 
+interface informs the user. 
 
 In order for this to function it's probably best if the interface assumes there is no handlers until told otherwise.
 
-3). Multiple language support. 
+3). Multiple language support.
 
 4). Interface knows how to show things, database handler knows what to show.
 
-For example, all databases have different datatypes, interface knows where to show them but has to ask the handler for a list of wich there are.
+For example, all databases have different datatypes, interface knows where to show them but has to ask the handler 
+for a list of wich there are.
