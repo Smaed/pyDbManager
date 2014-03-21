@@ -4,6 +4,8 @@
 import tkinter
 from tkinter import ttk
 import initiate
+import lib
+
 
 class notebookFrame(ttk.Frame):
     """Notebook, contains notbook and tabs related
@@ -24,9 +26,29 @@ class menuFrame(ttk.Frame):
     def __init__(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.master = master
+        self.initUI()
         
-        lable = tkinter.Label(self, text = "Menu and toolbar")
-        lable.pack(anchor="ne", pady=5, side="left")
+    def initUI(self):
+        
+        self.menubar = tkinter.Menu(self)
+        self.fileMenu = tkinter.Menu(self, tearoff=0)
+        self.fileMenu.add_command(label="Exit", command=self.onExit)
+        self.menubar.add_cascade(label="File", menu=self.fileMenu)
+        
+        toolbar = tkinter.Frame(self, bd=1, relief='raised')
+
+        exitButton = tkinter.Button(toolbar, text='Exit', relief='flat',
+            command=self.quit)
+
+        exitButton.pack(side='left', padx=2, pady=2)
+        
+        toolbar.pack(side='top', fill='x')
+        
+    def setMenu(self):
+         return self.menubar
+       
+    def onExit(self):
+        self.quit()
 
 
 class treeviewFrame(ttk.Frame):
@@ -43,9 +65,10 @@ class treeviewFrame(ttk.Frame):
 class mainGuiFrame(ttk.Frame):
     """Connects all different parts of the gui"""
     
-    def __init__(self, master):
-        super().__init__(master)
+    def __init__(self, master, *args, **kwargs):
+        super().__init__(master, *args, **kwargs)
         self.master = master
+        self.master.title(lib.WINDOW_TITLE)
         self.master.geometry('{w}x{h}'.format(w=initiate.defVars['width'],
                                             h=initiate.defVars['height']))
 
@@ -66,6 +89,8 @@ class mainGuiFrame(ttk.Frame):
         
         self.frame3 = notebookFrame(self, style='f3.TFrame')
         self.frame3.pack(fill='both', expand=True)
+        
+        self.master.config(menu=self.frame1.setMenu())
         
         self.pack(expand=True, fill='both')
 
