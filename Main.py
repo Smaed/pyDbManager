@@ -1,13 +1,13 @@
 #!/usr/local/bin/python3.4
 # -*- coding: utf-8 -*-
 
-from gi.repository import Gtk
 import gui
+import tkinter
+import dbHandlers
 
 def main():
-	window = gui.main_gui()
-	window.show_all()
-	Gtk.main()
+    root = tkinter.Tk()
+    gui.MainGuiFrame(master=root).mainloop()
 	
 if __name__ == '__main__':
 	main()
