@@ -7,7 +7,7 @@ import dbHandlers
 
 def main():
     root = tkinter.Tk()
-    gui.MainGuiFrame(master=root).mainloop()
+    gui.mainGuiFrame(master=root).mainloop()
 	
 if __name__ == '__main__':
 	main()
