@@ -5,7 +5,8 @@
 class setValues(object):
     
     def __init__(self):
-        self.var = {'width':800,'height':600}
+        self.var = {'width'   :800,   'height' :600,
+                    'treeSide':'left','toolBar':'top'}
 	
     def _config(self):
         pass

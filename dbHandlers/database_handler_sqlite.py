@@ -8,7 +8,10 @@ name = 'sqlite'
 class database_handler_sqlite(object):
 	
 	def __init__(self, path):
-		self.path = path
+		
+ #       defValues = {'foreignkeys':0}                       #Set the intital values ex. Pragma foreign
+        
+        self.path = path
 		self.db_type = 'sqlite'
 		
 	def connect(self):

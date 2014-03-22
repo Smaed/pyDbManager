@@ -32,23 +32,21 @@ class menuFrame(ttk.Frame):
         
         self.menubar = tkinter.Menu(self)
         self.fileMenu = tkinter.Menu(self, tearoff=0)
-        self.fileMenu.add_command(label="Exit", command=self.onExit)
+        self.fileMenu.add_command(label="Exit", command=self.master.onExit)
         self.menubar.add_cascade(label="File", menu=self.fileMenu)
         
-        toolbar = tkinter.Frame(self, bd=1, relief='raised')
+#        toolbar = ttk.Frame(self, style='toolbar.TFrame')
 
-        exitButton = tkinter.Button(toolbar, text='Exit', relief='flat',
-            command=self.quit)
+        exitButton = ttk.Button(self, style   =  'toolbar.TButton', 
+                                         text    =  'Exit', 
+                                         command =  self.quit)
 
         exitButton.pack(side='left', padx=2, pady=2)
         
-        toolbar.pack(side='top', fill='x')
+#        toolbar.pack(side='top', fill='x')
         
     def setMenu(self):
          return self.menubar
-       
-    def onExit(self):
-        self.quit()
 
 
 class treeviewFrame(ttk.Frame):
@@ -73,19 +71,17 @@ class mainGuiFrame(ttk.Frame):
                                             h=initiate.defVars['height']))
 
         s1 = ttk.Style()
-        s1.configure('f1.TFrame', background='blue')                                    
-        s2 = ttk.Style()
-        s2.configure('f2.TFrame', background='green')
-        s3 = ttk.Style()
-        s3.configure('f3.TFrame', background='yellow')
-        s4 = ttk.Style()
-        s4.configure('f4.TFrame', background='red')
+        s1.configure('toolbar.TFrame', relief='raised', bd=1)
+        s1.configure('toolbar.TButton', relief='flat', bd=1)
+        s1.configure('f2.TFrame', background='green')
+        s1.configure('f3.TFrame', background='yellow')
+        s1.configure('f4.TFrame', background='red')
         
-        self.frame1 = menuFrame(self, style='f1.TFrame')
-        self.frame1.pack(fil='x')
+        self.frame1 = menuFrame(self, style='toolbar.TFrame')
+        self.frame1.pack(fil='x', side=initiate.defVars['toolBar'])     #Side will be changable in Gui, Config or arguments
         
         self.frame2 = treeviewFrame(self, style='f2.TFrame')
-        self.frame2.pack(side='left', fill='y')                         #Side will be changable in Gui, Config or arguments
+        self.frame2.pack(fill='y', side=initiate.defVars['treeSide'])  #Side will be changable in Gui, Config or arguments
         
         self.frame3 = notebookFrame(self, style='f3.TFrame')
         self.frame3.pack(fill='both', expand=True)
@@ -93,7 +89,11 @@ class mainGuiFrame(ttk.Frame):
         self.master.config(menu=self.frame1.setMenu())
         
         self.pack(expand=True, fill='both')
-
+        
+               
+    def onExit(self):
+        self.quit()
+        
          
 def main():
 	pass
