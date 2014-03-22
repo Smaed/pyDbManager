@@ -72,7 +72,7 @@ class mainGuiFrame(ttk.Frame):
 
         s1 = ttk.Style()
         s1.configure('toolbar.TFrame', relief='raised', bd=1)
-        s1.configure('toolbar.TButton', relief='flat', bd=1)
+        s1.configure('toolbar.TButton', relief='flat')
         s1.configure('f2.TFrame', background='green')
         s1.configure('f3.TFrame', background='yellow')
         s1.configure('f4.TFrame', background='red')
