@@ -34,16 +34,12 @@ class menuFrame(ttk.Frame):
         self.fileMenu = tkinter.Menu(self, tearoff=0)
         self.fileMenu.add_command(label="Exit", command=self.master.onExit)
         self.menubar.add_cascade(label="File", menu=self.fileMenu)
-        
-#        toolbar = ttk.Frame(self, style='toolbar.TFrame')
 
         exitButton = ttk.Button(self, style   =  'toolbar.TButton', 
                                          text    =  'Exit', 
-                                         command =  self.quit)
+                                         command =  self.master.onExit)
 
         exitButton.pack(side='left', padx=2, pady=2)
-        
-#        toolbar.pack(side='top', fill='x')
         
     def setMenu(self):
          return self.menubar
