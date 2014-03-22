@@ -1,8 +1,8 @@
 #!/usr/local/bin/python3.4
 # -*- coding: utf-8 -*-
 
-import gui
 import tkinter
+import gui
 import dbHandlers
 
 def main():
