@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-db_type_list = []
+db_types = []
 
 """
 Most of the code here is either temporary or very much unfinnished.
@@ -14,34 +14,34 @@ the available options.
 #Test if sqlite3 module is present
 try: 
 	from dbHandlers import database_handler_sqlite
-	db_type_list.append(database_handler_sqlite.name)
+	db_types.append(database_handler_sqlite.name)
 	
 except ImportError:
 	#Going to show message to user later
-	print 'no sqlite'
+	print('no sqlite')
 		
 #Test if MySQL module is present
 try:
 	from dbHandlers import database_handler_mysql
-	db_type_list.append(database_handler_mysql.name)
+	db_types.append(database_handler_mysql.name)
 	
 except ImportError:
 	#Going to show message to user later
-	print 'no mySQL'
+	print ('no mySQL')
 
 #Test if MsSQL module is pressent
 try:
 	from dbHandlers import database_handler_mssql
-	db_type_list.append(database_handler_mssql.name)
+	db_types.append(database_handler_mssql.name)
 	
 except ImportError:
 	#Going to show message to user later
-	print 'no ms sql'
+	print('no ms sql')
 
 class connection_handler(object):
 	
 	def __init__(self):
-		self.db_type_list = db_type_list
+		self.db_types = db_type_list
 		self.connected_db = []
 	
 	def connect(self, db_type, path):
