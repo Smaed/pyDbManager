@@ -5,7 +5,7 @@ import tkinter
 from tkinter import ttk
 import initiate
 import lib
-
+import db_connect
 
 class notebookFrame(ttk.Frame):
     """Notebook, contains notbook and tabs related
@@ -26,20 +26,29 @@ class menuFrame(ttk.Frame):
     def __init__(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.master = master
-        self.initUI()
-        
-    def initUI(self):
-        
-        self.menubar = tkinter.Menu(self)
-        self.fileMenu = tkinter.Menu(self, tearoff=0)
-        self.fileMenu.add_command(label="Exit", command=self.master.onExit)
-        self.menubar.add_cascade(label="File", menu=self.fileMenu)
 
+        self.menubar = tkinter.Menu(self)
+        
+        self.fileMenu = tkinter.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="File", menu=self.fileMenu)
+        
+        self.openMenu = tkinter.Menu(self.fileMenu, tearoff=0)
+        self.fileMenu.add_cascade(label="Open", menu=self.openMenu)
+
+        self.fileMenu.add_command(label="Exit", command=self.master.onExit)
+        
         exitButton = ttk.Button(self, style   =  'toolbar.TButton', 
                                          text    =  'Exit', 
                                          command =  self.master.onExit)
 
         exitButton.pack(side='left', padx=2, pady=2)
+        
+        self.populateMenu()
+        
+        
+    def populateMenu(self):
+        for types in db_connect.db_types:
+            self.openMenu.add_command(label=types, command=self.master.onOpen)
         
     def setMenu(self):
          return self.menubar
@@ -74,7 +83,7 @@ class mainGuiFrame(ttk.Frame):
         s1.configure('f4.TFrame', background='red')
         
         self.frame1 = menuFrame(self, style='toolbar.TFrame')
-        self.frame1.pack(fil='x', side=initiate.defVars['toolBar'])     #Side will be changable in Gui, Config or arguments
+        self.frame1.pack(fill='x', side=initiate.defVars['toolBar'])     #Side will be changable in Gui, Config or arguments
         
         self.frame2 = treeviewFrame(self, style='f2.TFrame')
         self.frame2.pack(fill='y', side=initiate.defVars['treeSide'])  #Side will be changable in Gui, Config or arguments
@@ -90,6 +99,9 @@ class mainGuiFrame(ttk.Frame):
     def onExit(self):
         self.quit()
         
+    def onOpen(self):
+         print('Open')
+         
          
 def main():
 	pass
