@@ -3,7 +3,8 @@
 
 import sqlite3 as sqlite
 
-name = 'sqlite'
+name = 'Sqlite 3'
+options = {'login':False}
 
 class database_handler_sqlite(object):
 	

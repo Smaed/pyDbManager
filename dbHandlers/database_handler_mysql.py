@@ -1,27 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import mysql.connect
+import mysql.connector
 
-name = 'mysql'
+name = 'MySQL'
 
-class database_handler_sqlite(object):
+class database_handler_mysql(object):
 	
-	def __init__(self, path):
-		self.path = path
-		self.type = 'mysql'
+    def __init__(self, path):
+        pass
 		
-	def database_handler_connect(self):
-		pass
+    def database_handler_connect(self):
+        pass
 		
-	def database_handler_exec_sql(self):
-		pass
+    def database_handler_exec_sql(self):
+        pass
 	
-	def database_handler_update_tables():
-		pass
+    def database_handler_update_tables():
+        pass
 	
 def main():
-	pass
+    pass
 
 if __name__ == '__main__':
 	main()
