@@ -46,9 +46,10 @@ class menuFrame(ttk.Frame):
         self.populateMenu()
         
         
-    def populateMenu(self):
-        for types in db_connect.db_types:
-            self.openMenu.add_command(label=types, command=self.master.onOpen)
+    def populateMenu(self):                        #Will be extended to include options on how a db will open (filebox,loginbox)
+        for db_type in db_connect.db_types:
+            self.openMenu.add_command(label=db_type, 
+                                    command=lambda: self.master.onOpen(db_type))
         
     def setMenu(self):
          return self.menubar
@@ -99,8 +100,8 @@ class mainGuiFrame(ttk.Frame):
     def onExit(self):
         self.quit()
         
-    def onOpen(self):
-         print('Open')
+    def onOpen(self, db_type):
+         print('Open ' + db_type)
          
          
 def main():
