@@ -7,22 +7,22 @@ name = 'sqlite'
 
 class database_handler_sqlite(object):
 	
-	def __init__(self, path):
+    def __init__(self, path):
 		
  #       defValues = {'foreignkeys':0}                       #Set the intital values ex. Pragma foreign
         
         self.path = path
-		self.db_type = 'sqlite'
+        self.db_type = 'sqlite'
+        
+    def connect(self):
+        self.con = sqlite.connect(self.path)
+        self.cur = self.con.cursor()
 		
-	def connect(self):
-		self.con = sqlite.connect(self.path)
-		self.cur = self.con.cursor()
-		
-	def exec_sql(self):
-		pass
-	
-	def update_tables():
-		pass
+    def exec_sql(self):
+        pass
+        
+    def update_tables():
+        pass
 	
 def main():
 	pass
