@@ -43,13 +43,13 @@ class menuFrame(ttk.Frame):
 
         exitButton.pack(side='left', padx=2, pady=2)
         
-        self.populateMenu()
+        self._populateMenu()
         
         
-    def populateMenu(self):                        #Will be extended to include options on how a db will open (filebox,loginbox)
+    def _populateMenu(self):                        #Will be extended to include options on how a db will open (filebox,loginbox)
         for db_type in db_connect.db_types:
             self.openMenu.add_command(label=db_type, 
-                                    command=lambda: self.master.onOpen(db_type))
+                                    command=lambda db_type=db_type: self.master.onOpen(db_type))
         
     def setMenu(self):
          return self.menubar
