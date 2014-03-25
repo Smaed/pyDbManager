@@ -18,3 +18,12 @@ if Loginbox == None: Filebox
 
 Create a general class for the handlers, it should be most effective if all
 handlers only change the specifics for that database.
+
+
+4.
+
+Creating the argparse and configparse functions, adding the default values will be a later problem. 
+I also want the db handlers to hook into this and supply default values
+
+Mysql: foreign keys = True | False
+SQLite foreign keys = True | False
