@@ -31,6 +31,9 @@ class menuFrame(ttk.Frame):
         
         self.fileMenu = tkinter.Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="File", menu=self.fileMenu)
+
+        self.newMenu = tkinter.Menu(self.fileMenu, tearoff=0)
+        self.fileMenu.add_cascade(label="New", menu=self.newMenu)
         
         self.openMenu = tkinter.Menu(self.fileMenu, tearoff=0)
         self.fileMenu.add_cascade(label="Open", menu=self.openMenu)
@@ -48,11 +51,15 @@ class menuFrame(ttk.Frame):
         
     def _populateMenu(self):                        #Will be extended to include options on how a db will open (filebox,loginbox)
         for db_type in db_connect.db_types:
+            self.newMenu.add_command(label=db_type, 
+                                    command=lambda db_type=db_type: self.master.onNew(db_type))
+        for db_type in db_connect.db_types:
             self.openMenu.add_command(label=db_type, 
                                     command=lambda db_type=db_type: self.master.onOpen(db_type))
+            
         
     def setMenu(self):
-         return self.menubar
+        return self.menubar
 
 
 class treeviewFrame(ttk.Frame):
@@ -77,7 +84,7 @@ class mainGuiFrame(ttk.Frame):
                                             h=initiate.defVars['height']))
 
         s1 = ttk.Style()
-        s1.configure('toolbar.TFrame', relief='raised', bd=1)
+        s1.configure('toolbar.TFrame', relief='flat', bd=1)
         s1.configure('toolbar.TButton', relief='flat')
         s1.configure('f2.TFrame', background='green')
         s1.configure('f3.TFrame', background='yellow')
@@ -101,12 +108,15 @@ class mainGuiFrame(ttk.Frame):
         self.quit()
         
     def onOpen(self, db_type):
-         print('Open: ' + db_type)
+        print('Open: ' + db_type)
+        
+    def onNew(self, db_type):
+        print('New: ' + db_type)
          
          
 def main():
-	pass
+    pass
 
 if __name__ == '__main__':
-	main()
+    main()
 
