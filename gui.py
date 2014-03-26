@@ -56,8 +56,7 @@ class menuFrame(ttk.Frame):
         for db_type in db_connect.db_types:
             self.openMenu.add_command(label=db_type, 
                                     command=lambda db_type=db_type: self.master.onOpen(db_type))
-            
-        
+
     def setMenu(self):
         return self.menubar
 
@@ -69,8 +68,20 @@ class treeviewFrame(ttk.Frame):
         super().__init__(master, *args, **kwargs)
         self.master = master
         
-        self.tree = ttk.Treeview(self)
-        self.tree.pack(fill='y', expand=True)
+        self.tree = ttk.Treeview(self, selectmode='browse')
+        self.tree.pack(fill='y', expand=True, side='left')
+        
+        self.vsb = ttk.Scrollbar(self, orient="vertical", command = self.tree.yview)
+        self.tree.config(yscrollcommand=self.vsb.set)
+        
+        self.vsb.pack(side='left', fill='both')
+        
+        self.initialValues()
+    
+    def initialValues(self):
+        
+        for db_type in db_connect.db_types:
+            self.tree.insert('', 'end', db_type, text=db_type)
 
 
 class mainGuiFrame(ttk.Frame):
@@ -103,15 +114,15 @@ class mainGuiFrame(ttk.Frame):
         
         self.pack(expand=True, fill='both')
         
-               
-    def onExit(self):
-        self.quit()
-        
+                       
     def onOpen(self, db_type):
         print('Open: ' + db_type)
         
     def onNew(self, db_type):
         print('New: ' + db_type)
+        
+    def onExit(self):
+        self.quit()
          
          
 def main():
