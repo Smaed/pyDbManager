@@ -82,6 +82,14 @@ class treeviewFrame(ttk.Frame):
         
         for db_type in db_connect.db_types:
             self.tree.insert('', 'end', db_type, text=db_type)
+            
+    def addDb(self, db_type, database):
+        '''Wor in progress for adding new entries to the treeview, 
+            all new databases will be grouped under their type and all tables groups under the database '''
+        self.tree.insert(db_type, 'end', database, text='')
+        
+        for table in database.tables:
+            self.tree.insert(database, 'end', table, text=table)    
 
 
 class mainGuiFrame(ttk.Frame):
