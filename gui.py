@@ -13,11 +13,44 @@ class notebookFrame(ttk.Frame):
     
     def __init__(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
+        
         self.master = master
         
-        lable = tkinter.Label(self, text = "Notebook")
-        lable.pack(anchor="ne", pady=5, side="left")
+        self.vertical_canvas = ttk.Scrollbar(self, orient="vertical")
+        self.horizontal_canvas = ttk.Scrollbar(self, orient="horizontal")
         
+        self.horizontal_canvas.pack(side='bottom', fill='x')
+        self.vertical_canvas.pack(side='right', fill='y')
+        
+        self.noteBook = ttk.Notebook(self)
+        self.noteBook.pack(side='top', fill='both', expand='yes')
+        
+        self.data=ttk.Frame(self.noteBook)
+        self.data.pack(side='top', fill='both', expand='yes')
+        
+        self.edit=ttk.Frame(self.noteBook)
+        self.edit.pack(side='top', fill='both', expand='yes')
+        
+        self.sql=ttk.Frame(self.noteBook)
+        self.sql.pack(side='top', fill='both', expand='yes')
+        
+        self.noteBook.add(self.data, text='Data')
+        self.noteBook.add(self.edit, text='Edit')
+        self.noteBook.add(self.sql, text='SQL')
+        
+    
+    def set_scrollbar(self):
+        pass
+        
+    def update_data(self, *args, **kwargs):
+        pass
+        
+    def update_edit(self, *args, **kwargs):
+        pass
+    
+    def update_sql(self, *args, **kwargs):
+        pass
+
 
 class menuFrame(ttk.Frame):
     """Contains everything related to the
