@@ -16,8 +16,8 @@ class notebookFrame(ttk.Frame):
         
         self.master = master
         
-        self.vertical_canvas = ttk.Scrollbar(self, orient="vertical")
         self.horizontal_canvas = ttk.Scrollbar(self, orient="horizontal")
+        self.vertical_canvas = ttk.Scrollbar(self, orient="vertical")
         
         self.horizontal_canvas.pack(side='bottom', fill='x')
         self.vertical_canvas.pack(side='right', fill='y')
@@ -74,8 +74,8 @@ class menuFrame(ttk.Frame):
         self.fileMenu.add_command(label="Exit", command=self.master.onExit)
         
         exitButton = ttk.Button(self, style   =  'toolbar.TButton', 
-                                         text    =  'Exit', 
-                                         command =  self.master.onExit)
+                                      text    =  'Exit', 
+                                      command =  self.master.onExit)
 
         exitButton.pack(side='left', padx=2, pady=2)
         
@@ -86,6 +86,7 @@ class menuFrame(ttk.Frame):
         for db_type in db_connect.db_types:
             self.newMenu.add_command(label=db_type, 
                                     command=lambda db_type=db_type: self.master.onNew(db_type))
+            
         for db_type in db_connect.db_types:
             self.openMenu.add_command(label=db_type, 
                                     command=lambda db_type=db_type: self.master.onOpen(db_type))
@@ -117,8 +118,9 @@ class treeviewFrame(ttk.Frame):
             self.tree.insert('', 'end', db_type, text=db_type)
             
     def addDb(self, db_type, database):
-        '''Wor in progress for adding new entries to the treeview, 
+        '''Work in progress for adding new entries to the treeview, 
             all new databases will be grouped under their type and all tables groups under the database '''
+        
         self.tree.insert(db_type, 'end', database, text='')
         
         for table in database.tables:
