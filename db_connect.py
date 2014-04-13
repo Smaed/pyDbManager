@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-db_types = []
+db_types = {}
 
 """
 Most of the code here is either temporary or very much unfinnished.
@@ -14,7 +14,7 @@ the available options.
 #Test if sqlite3 module is present
 try: 
 	from dbHandlers import database_handler_sqlite
-	db_types.append(database_handler_sqlite.name)
+	db_types[database_handler_sqlite.name] = database_handler_sqlite
 	
 except ImportError:
 	#Going to show message to user later
@@ -23,7 +23,7 @@ except ImportError:
 #Test if MySQL module is present
 try:
 	from dbHandlers import database_handler_mysql
-	db_types.append(database_handler_mysql.name)
+	db_types[database_handler_mysql.name] = database_handler_mysql
 	
 except ImportError:
 	#Going to show message to user later
@@ -32,34 +32,30 @@ except ImportError:
 #Test if MsSQL module is pressent
 try:
 	from dbHandlers import database_handler_mssql
-	db_types.append(database_handler_mssql.name)
+	db_types[database_handler_mssql.name] = database_handler_mssql
 	
 except ImportError:
 	#Going to show message to user later
 	print('no ms sql')
 
-class connection_handler(object):
+print(db_types['Sqlite 3'])
+
+class DbConnect(object):
 	
 	def __init__(self):
-		self.db_types = db_type_list
 		self.connected_db = []
 	
-	def connect(self, db_type, path):
-		if db_type == 'sqlite':
-			self.connect_sqlite(path)
-		elif db_type == 'mysql':
-			self.connect_mysql(path)
-		elif db_type == 'mssql':
-			self.connect_mssql(path)
+	def addDb(self, db_type):
+		
+		if db_type.options['login']:
+			pass
 			
-#	def connect_sqlite(self, path):
-#		self.connected_db.append(database_handler_sqlite(path))	
-#		
-#	def connect_mysql(self, path):
-#		self.connected_db.append(database_handler_mysql(path))
-#		
-#		self.connected_db.append(database_handler_mssql(path))
+		else:
+			pass
 	
+	def removeDB(self):
+		pass
+
 def main():
 	
 	return 0
