@@ -4,7 +4,7 @@
 import tkinter
 from tkinter import ttk
 import initiate
-import lib
+import lib.Reference, lib.Lang
 import db_connect
 
 class notebookFrame(ttk.Frame):
@@ -63,18 +63,18 @@ class menuFrame(ttk.Frame):
         self.menubar = tkinter.Menu(self)
         
         self.fileMenu = tkinter.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="File", menu=self.fileMenu)
+        self.menubar.add_cascade(label=lib.Lang.MENU_FILE, menu=self.fileMenu)
 
         self.newMenu = tkinter.Menu(self.fileMenu, tearoff=0)
-        self.fileMenu.add_cascade(label="New", menu=self.newMenu)
+        self.fileMenu.add_cascade(label=lib.Lang.FILE_NEW, menu=self.newMenu)
         
         self.openMenu = tkinter.Menu(self.fileMenu, tearoff=0)
-        self.fileMenu.add_cascade(label="Open", menu=self.openMenu)
+        self.fileMenu.add_cascade(label=lib.Lang.FILE_OPEN, menu=self.openMenu)
 
-        self.fileMenu.add_command(label="Exit", command=self.master.onExit)
+        self.fileMenu.add_command(label=lib.Lang.FILE_EXIT, command=self.master.onExit)
         
         exitButton = ttk.Button(self, style   =  'toolbar.TButton', 
-                                      text    =  'Exit', 
+                                      text    =  lib.Lang.BUTTON_EXIT, 
                                       command =  self.master.onExit)
 
         exitButton.pack(side='left', padx=2, pady=2)
@@ -133,7 +133,7 @@ class mainGuiFrame(ttk.Frame):
     def __init__(self, master, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.master = master
-        self.master.title(lib.WINDOW_TITLE)
+        self.master.title(lib.Reference.WINDOW_TITLE)
         self.master.geometry('{w}x{h}'.format(w=initiate.defVars['width'],
                                             h=initiate.defVars['height']))
 
