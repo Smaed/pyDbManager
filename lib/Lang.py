@@ -7,4 +7,8 @@ FILE_NEW = "New"
 FILE_OPEN = "Open"
 FILE_EXIT = "Exit"
 
+TAB_DATA = "Data"
+TAB_SQL = "SQL"
+
+
 BUTTON_EXIT = "Exit"
