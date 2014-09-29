@@ -42,6 +42,8 @@ print(db_types['Sqlite 3'])
 
 class DbConnect(object):
 	
+	_databases = []
+	
 	def __init__(self):
 		self.connected_db = []
 	

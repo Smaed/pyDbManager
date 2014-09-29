@@ -2,15 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import sqlite3 as sqlite
+from dbFile import dbFile
 
 name = 'Sqlite 3'
 
-options = {'login':False,
-			'foreign':True}
-
-class database_handler_sqlite(object):
+class database_handler_sqlite(dbFile):
 
     def __init__(self, path):
+        dbFile.__init__(self, path)
         self.path = path
         self.db_type = 'sqlite'
         
