@@ -10,7 +10,6 @@ class dbFile(db):
     '''
     classdocs
     '''
-
     def __init__(self, path):
         db.__init__(self)
         '''
