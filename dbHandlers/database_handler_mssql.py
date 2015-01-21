@@ -1,15 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-
-name = 'mssql'
-
 class database_handler_mssql(object):
 	
-	def __init__(self, path):
-		self.path = path
-		self.db_type = 'mssql'
+	def __init__(self):
+		print('MsSQL')
 		
 	def database_handler_connect(self):
 		pass
@@ -19,10 +14,8 @@ class database_handler_mssql(object):
 	
 	def update_tables(self):
 		pass
-	
-def main():
-	pass
 
-if __name__ == '__main__':
-	main()
+
+name = 'mssql'
+db = database_handler_mssql
 

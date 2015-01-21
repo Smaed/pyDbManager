@@ -23,10 +23,3 @@ class database_handler_sqlite(dbFile):
     def update_tables(self):
         pass
 
-
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()
-

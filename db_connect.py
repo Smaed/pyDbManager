@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
+
 db_types = {}
 
 """
@@ -12,33 +14,22 @@ the available options.
 """
 
 #Test if sqlite3 module is present
-try: 
-	from dbHandlers import database_handler_sqlite
-	db_types[database_handler_sqlite.name] = database_handler_sqlite
+#try: 
+#	import dbHandlers.database_handler_sqlite
+#	db_types[dbHandlers.database_handler_sqlite.name] = dbHandlers.database_handler_sqlite
 	
-except ImportError:
+#except ImportError:
 	#Going to show message to user later
-	print('no sqlite')
+#	print('no sqlite')
 		
 #Test if MySQL module is present
-try:
-	from dbHandlers import database_handler_mysql
-	db_types[database_handler_mysql.name] = database_handler_mysql
-	
-except ImportError:
-	#Going to show message to user later
-	print ('no mySQL')
 
-#Test if MsSQL module is pressent
-try:
-	from dbHandlers import database_handler_mssql
-	db_types[database_handler_mssql.name] = database_handler_mssql
-	
-except ImportError:
-	#Going to show message to user later
-	print('no ms sql')
+db_handlers = __import__('dbHandlers', fromlist = ['database_handler_mysql'])
+print(db_handlers.database_handler_mysql.name)
+print(dir(db_handlers))
 
-print(db_types['Sqlite 3'])
+db_types[db_handlers.name] = db_handlers
+print(db_types['mysql'])
 
 class DbConnect(object):
 	
